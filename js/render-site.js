@@ -11,6 +11,7 @@ async function renderSite() {
   renderSpecials(content.specials);
   renderStory(content.story);
   renderMenu(content.menu);
+  _cachedMenu = content.menu;
   renderGallery(content.gallery);
   renderQuote(content.quote);
   renderContact(content.contact);
@@ -48,13 +49,27 @@ function renderStory(story) {
 
 function renderMenu(menu) {
   const grid = document.getElementById('menuCategories');
+  const tabs = document.getElementById('menuTabs');
   if (!menu || !menu.categories) return;
 
-  grid.innerHTML = menu.categories.map(cat => `
-    <div class="menu-cat">
-      <div class="menu-cat-title">
-        ${escHtml(cat.name)} <span class="menu-cat-icon">${cat.icon || ''}</span>
-      </div>
+  // Build tabs
+  tabs.innerHTML = menu.categories.map((cat, i) => `
+    <button class="menu-tab ${i === 0 ? 'active' : ''}"
+      onclick="switchMenuTab(${i})"
+      id="menu-tab-${i}">
+      ${cat.icon || ''} ${escHtml(cat.name)}
+    </button>
+  `).join('');
+
+  // Show first category by default
+  showMenuCategory(menu, 0);
+}
+
+function showMenuCategory(menu, index) {
+  const grid = document.getElementById('menuCategories');
+  const cat = menu.categories[index];
+  grid.innerHTML = `
+    <div class="menu-cat" style="grid-column: 1 / -1; max-width: 600px;">
       ${cat.items.map(item => `
         <div class="menu-item">
           <div>
@@ -65,7 +80,16 @@ function renderMenu(menu) {
         </div>
       `).join('')}
     </div>
-  `).join('');
+  `;
+}
+
+let _cachedMenu = null;
+
+function switchMenuTab(index) {
+  document.querySelectorAll('.menu-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === index);
+  });
+  if (_cachedMenu) showMenuCategory(_cachedMenu, index);
 }
 
 function renderGallery(gallery) {

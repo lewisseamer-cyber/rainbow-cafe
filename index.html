@@ -148,6 +148,10 @@
   /* MENU */
   .menu-section { background: var(--paper2); }
   .menu-intro { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 48px; }
+  .menu-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+  .menu-tab { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--cream-line); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+  .menu-tab:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .menu-tab.active { background: var(--terracotta); color: white; border-color: var(--terracotta); }
   .menu-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 56px; }
   .menu-cat-title { font-family: var(--display); font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); display: flex; align-items: baseline; justify-content: space-between; }
   .menu-cat-icon { font-size: 16px; opacity: 0.6; }
@@ -319,6 +323,7 @@
           <p class="lede">The best value breakfasts and dinners in Lancing, plus proper coffee and a few sweet treats to go with it.</p>
         </div>
       </div>
+      <div class="menu-tabs" id="menuTabs"></div>
       <div class="menu-categories" id="menuCategories">
         <!-- populated by JS -->
       </div>

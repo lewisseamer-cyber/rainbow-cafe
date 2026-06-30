@@ -16,8 +16,8 @@ const DEFAULT_CONTENT = {
     image: 'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/06/top-wallpapers-1-101-1.jpeg?w=1024',
   },
   specials: {
-    enabled: true,
-    text: "Homemade leek & potato soup, with crusty bread — £4.75",
+    enabled: false,
+    text: '',
   },
   story: {
     image: 'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/06/01.png?w=460',
@@ -30,38 +30,153 @@ const DEFAULT_CONTENT = {
   menu: {
     categories: [
       {
-        name: 'Breakfast', icon: '☀',
+        name: 'Breakfast',
+        icon: '🍳',
         items: [
-          { name: 'Full Rainbow Breakfast', desc: 'Eggs, bacon, sausage, beans, toast & grilled tomato', price: '7.95' },
-          { name: 'Eggs on Toast', desc: 'Poached, fried or scrambled', price: '4.50' },
-          { name: 'Bacon Roll', desc: 'Crispy bacon in a fresh white roll', price: '3.95' },
-          { name: 'Porridge', desc: 'With honey or seasonal fruit', price: '3.50' },
+          { name: 'Small Breakfast', desc: '1 egg, 1 rasher, 1 sausage, 1 bread, beans, toast', price: '4.50' },
+          { name: 'Medium Breakfast', desc: '2 eggs, 2 rashers, 2 sausages, bread, beans, toast', price: '5.50' },
+          { name: 'Vegetarian Breakfast', desc: '2 eggs, 1 vegetarian sausage, mushrooms, beans, bread & toast', price: '6.00' },
+          { name: 'Large Breakfast', desc: '2 eggs, 3 rashers, 3 sausages, bread, beans, mushrooms, toast', price: '7.50' },
+          { name: 'Belly Buster Breakfast', desc: '2 eggs, 3 bacon, 3 sausages, mushrooms, bread, beans, hash, toast', price: '8.50' },
+          { name: 'Fried Egg', desc: 'On toast', price: '2.50' },
+          { name: 'Poached Egg', desc: 'On toast', price: '2.00' },
+          { name: 'Scrambled Egg', desc: 'On toast', price: '2.50' },
         ],
       },
       {
-        name: 'Coffee & Drinks', icon: '☕',
+        name: 'Omelettes',
+        icon: '🥚',
         items: [
-          { name: 'Flat White', desc: 'Freshly roasted, locally sourced beans', price: '3.20' },
-          { name: 'Cappuccino', desc: '', price: '3.20' },
-          { name: 'Hot Chocolate', desc: 'Topped with cream on request', price: '3.00' },
-          { name: 'Milkshake', desc: 'Vanilla, chocolate or strawberry', price: '3.75' },
+          { name: 'Plain Omelette', desc: 'All served with peas or beans', price: '5.00' },
+          { name: 'Cheese Omelette', desc: '', price: '6.50' },
+          { name: 'Mushroom Omelette', desc: '', price: '6.50' },
+          { name: 'Ham & Cheese Omelette', desc: '', price: '7.00' },
+          { name: 'Spanish Omelette', desc: '', price: '7.50' },
         ],
       },
       {
-        name: 'Lunch & Dinner', icon: '🍽',
+        name: 'Salads',
+        icon: '🥗',
         items: [
-          { name: 'Jacket Potato', desc: 'Choice of cheese, beans or tuna mayo', price: '5.50' },
-          { name: 'Homemade Soup', desc: "With crusty bread — ask what's on today", price: '4.75' },
-          { name: 'Cafe Sandwich', desc: 'A daily changing selection of fillings', price: '5.25' },
-          { name: "Ploughman's Lunch", desc: 'Cheese, ham, pickle & fresh bread', price: '6.95' },
+          { name: 'Cheese', desc: '', price: '5.90' },
+          { name: 'Ham', desc: '', price: '5.90' },
+          { name: 'Tuna Mayo', desc: '', price: '5.90' },
+          { name: 'Chicken Mayo', desc: '', price: '5.90' },
+          { name: 'Prawn Cocktail', desc: '', price: '6.90' },
+          { name: 'Chicken Mayo & Bacon', desc: '', price: '6.50' },
         ],
       },
       {
-        name: 'Something Sweet', icon: '🍰',
+        name: 'Jacket Potato',
+        icon: '🥔',
         items: [
-          { name: 'Cake of the Day', desc: "Homemade — ask what we've got in", price: '3.25' },
-          { name: 'Toasted Teacake', desc: '', price: '2.50' },
-          { name: 'Scone, Jam & Cream', desc: '', price: '3.00' },
+          { name: 'Cheese', desc: '', price: '5.00' },
+          { name: 'Beans', desc: '', price: '5.00' },
+          { name: 'Tuna Mayo', desc: '', price: '6.00' },
+          { name: 'Tuna & Beans', desc: '', price: '6.00' },
+          { name: 'Coronation Chicken', desc: '', price: '6.50' },
+          { name: 'Chicken Mayo & Bacon', desc: '', price: '6.50' },
+          { name: 'Tuna Mayo & Cheese', desc: '', price: '6.50' },
+          { name: 'Prawn Cocktail', desc: '', price: '7.00' },
+        ],
+      },
+      {
+        name: 'Sandwiches & Baguettes',
+        icon: '🥖',
+        items: [
+          { name: 'Sandwich — 1 Filling', desc: 'Egg, bacon, sausage, ham, cheese, tomato, lettuce, onions', price: '3.00' },
+          { name: 'Sandwich — 2 Fillings', desc: '', price: '3.50' },
+          { name: 'Sandwich — 3 Fillings', desc: '', price: '4.00' },
+          { name: 'Baguette — 1 Filling', desc: '', price: '3.50' },
+          { name: 'Baguette — 2 Fillings', desc: '', price: '4.00' },
+          { name: 'Baguette — 3 Fillings', desc: '', price: '4.50' },
+          { name: 'Cheese (Cold)', desc: '', price: '3.00' },
+          { name: 'Tuna Mayo (Cold)', desc: '', price: '4.00' },
+          { name: 'Ham Salad (Cold)', desc: '', price: '3.50' },
+          { name: 'Coronation Chicken (Cold)', desc: '', price: '4.50' },
+          { name: 'Chicken Mayo & Bacon (Cold)', desc: '', price: '4.50' },
+          { name: 'Chicken Mayo & Salad (Cold)', desc: '', price: '4.50' },
+        ],
+      },
+      {
+        name: 'Snacks',
+        icon: '🍟',
+        items: [
+          { name: 'Cheesy Chips', desc: '', price: '3.00' },
+          { name: 'Cheeseburger', desc: 'With lettuce', price: '4.00' },
+          { name: 'Cheeseburger & Chips', desc: '', price: '5.50' },
+          { name: 'Bacon Cheeseburger & Chips', desc: '', price: '6.50' },
+          { name: 'Chicken Burger & Chips', desc: '', price: '5.50' },
+          { name: 'Vegetarian Burger & Chips', desc: '', price: '5.50' },
+          { name: '2 Eggs with Chips & Beans', desc: '', price: '4.50' },
+          { name: '2 Sausages with Chips & Beans', desc: '', price: '4.50' },
+          { name: 'Corned Beef, Egg & Chips', desc: '', price: '4.50' },
+          { name: 'Ham, 2 Eggs, Chips & Beans', desc: '', price: '6.50' },
+        ],
+      },
+      {
+        name: 'Dinner',
+        icon: '🍽',
+        items: [
+          { name: 'Roast Chicken / Beef / Pork', desc: 'Served with roast potatoes, gravy & 3 vegetables', price: '7.90' },
+          { name: 'Steak & Kidney Pie', desc: 'Served with mashed potatoes, gravy & 3 vegetables', price: '7.90' },
+          { name: 'Chicken & Mushroom Pie', desc: 'Served with mashed potatoes, gravy & 3 vegetables', price: '7.90' },
+          { name: 'Cottage Pie', desc: 'Served with 3 vegetables & gravy', price: '7.90' },
+          { name: 'Sausage & Mash', desc: 'Served with 2 sausages & 3 vegetables', price: '7.90' },
+          { name: 'Chilli Con Carne', desc: 'Served with rice, chips & garnish', price: '7.90' },
+          { name: 'Chicken Curry', desc: '', price: '7.90' },
+          { name: 'Beef Lasagne', desc: 'Served with chips & garnish & plain papadum', price: '7.90' },
+          { name: 'Liver & Bacon', desc: 'Served with mashed potatoes, gravy & 3 vegetables', price: '7.90' },
+          { name: 'Cod / Plaice / Scampi', desc: 'Served with chips & peas', price: '7.50' },
+        ],
+      },
+      {
+        name: 'Kids Meal',
+        icon: '👦',
+        items: [
+          { name: '1 Sausage', desc: 'All served with chips & beans', price: '4.00' },
+          { name: '2 Hash Browns', desc: 'All served with chips & beans', price: '4.00' },
+          { name: 'Fish Finger', desc: 'All served with chips & beans', price: '4.00' },
+          { name: 'Chicken Nuggets', desc: 'All served with chips & beans', price: '4.00' },
+        ],
+      },
+      {
+        name: 'Sweets',
+        icon: '🍰',
+        items: [
+          { name: 'Kit Kat / Flapjack', desc: '', price: '1.00' },
+          { name: 'Muffin', desc: '', price: '1.50' },
+          { name: 'Muffin with Custard', desc: '', price: '3.00' },
+          { name: 'Apple Pie with Custard', desc: '', price: '3.00' },
+          { name: 'Apple Pie with Ice Cream', desc: '', price: '3.00' },
+          { name: 'Ice Cream Sundae', desc: '', price: '3.00' },
+        ],
+      },
+      {
+        name: 'Beverages',
+        icon: '☕',
+        items: [
+          { name: 'Breakfast Tea', desc: '', price: '1.50' },
+          { name: 'Decaf / Herbal / Fruit Tea', desc: '', price: '1.80' },
+          { name: 'Coffee White / Black', desc: '', price: '1.50' },
+          { name: 'Mocha Latte', desc: '', price: '2.50' },
+          { name: 'Mocha Latte & Cream', desc: '', price: '3.00' },
+          { name: 'Hot Chocolate', desc: '', price: '2.50' },
+          { name: 'Hot Chocolate & Cream', desc: '', price: '3.00' },
+          { name: 'Iced Coffee', desc: '', price: '3.00' },
+          { name: 'Espresso', desc: '', price: '2.00' },
+          { name: 'Cappuccino', desc: '', price: '2.50' },
+          { name: 'Flat White', desc: '', price: '2.50' },
+          { name: 'Latte', desc: '', price: '2.50' },
+          { name: 'Still Water', desc: '', price: '1.00' },
+          { name: 'Canned Soft Drink', desc: '', price: '1.00' },
+          { name: 'Fruit Shoot', desc: '', price: '1.00' },
+          { name: 'Ribena', desc: '', price: '1.50' },
+          { name: 'Yazoo', desc: '', price: '1.50' },
+          { name: 'Milk', desc: '', price: '1.00' },
+          { name: 'Orange Juice', desc: 'Small / Large', price: '2.00 / 2.50' },
+          { name: 'Apple Juice', desc: 'Small / Large', price: '2.00 / 2.50' },
+          { name: 'Milkshake', desc: '', price: '3.50 / 4.00' },
         ],
       },
     ],
@@ -97,17 +212,11 @@ const DEFAULT_CONTENT = {
   ],
 };
 
-/* ============================================================
-   PUBLIC API — localStorage version
-   ============================================================ */
-
 async function getContent() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) return deepMerge(DEFAULT_CONTENT, JSON.parse(saved));
-  } catch (e) {
-    // localStorage unavailable or corrupt — fall through to defaults
-  }
+  } catch (e) {}
   return JSON.parse(JSON.stringify(DEFAULT_CONTENT));
 }
 
