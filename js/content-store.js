@@ -1,10 +1,10 @@
 /* ============================================================
-   RAINBOW CAFE — content-store.js
-   localStorage version — works in StackBlitz, browsers,
+   RAINBOW CAFE, content-store.js
+   localStorage version, works in StackBlitz, browsers,
    Cloudflare Pages. No dependencies.
 
    TO GO PRODUCTION with Supabase: see HANDOVER.md
-   Only this file needs changing — nothing else.
+   Only this file needs changing, nothing else.
    ============================================================ */
 
 const STORAGE_KEY = 'rainbow-cafe-content';
@@ -12,7 +12,7 @@ const STORAGE_KEY = 'rainbow-cafe-content';
 const DEFAULT_CONTENT = {
   hero: {
     headline: 'Good food,<br>made with <em>care</em>,<br>since the 80s.',
-    lede: 'A local cafe on South Street, run by Carlos and Jay. Honest breakfasts, hearty dinners, and a proper cup of coffee — in a building with roots back to 1838.',
+    lede: 'A local cafe on South Street, run by Carlos and Jay. Honest breakfasts, hearty dinners, and a proper cup of coffee, in a building with roots back to 1838.',
     image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAF_U_WG5jZJ5sldNBBRaULdMpWHsdHh251NXGbSuNS3emp636I-5YvuYg9SohErSOqveafd8O-k-vLm-xJYJmZLEPrTkZ3j6MZ6zxlGVzMoDqsMxJ4bcaXjfmZkotwwq6s1PX3Q=s680-w680-h510-rw',
   },
   specials: {
@@ -22,9 +22,9 @@ const DEFAULT_CONTENT = {
   story: {
     image: 'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/06/01.png?w=460',
     paragraphs: [
-      "Carlos and Jay are dedicated to everyday service in a genuinely welcoming atmosphere. The indoor space, including the rest room area, has been renovated with a fresh new design — but the warmth of the place hasn't changed a bit.",
-      "The building itself has a proper history. The first record of this site dates back to around 1838, when it was built as a labourer's house. It was demolished in 1926 and a thatched cottage went up in its place — rebuilt a few more times since, until it became the cafe you'll find today, serving customers since the 1980s.",
-      "Mr Green, who was born in this very building back in 1939, came to visit a few years ago and shared his memories with us. He said it was strange — but wonderful — to sit down for a meal in what was once his childhood home, more than half a century after he'd moved away.",
+      "Carlos and Jay are dedicated to everyday service in a genuinely welcoming atmosphere. The indoor space, including the rest room area, has been renovated with a fresh new design, but the warmth of the place hasn't changed a bit.",
+      "The building itself has a proper history. The first record of this site dates back to around 1838, when it was built as a labourer's house. It was demolished in 1926 and a thatched cottage went up in its place, rebuilt a few more times since, until it became the cafe you'll find today, serving customers since the 1980s.",
+      "Mr Green, who was born in this very building back in 1939, came to visit a few years ago and shared his memories with us. He said it was strange, but wonderful, to sit down for a meal in what was once his childhood home, more than half a century after he'd moved away.",
     ],
   },
   menu: {
@@ -84,12 +84,12 @@ const DEFAULT_CONTENT = {
         name: 'Sandwiches & Baguettes',
         icon: '🥖',
         items: [
-          { name: 'Sandwich — 1 Filling', desc: 'Egg, bacon, sausage, ham, cheese, tomato, lettuce, onions', price: '3.00' },
-          { name: 'Sandwich — 2 Fillings', desc: '', price: '3.50' },
-          { name: 'Sandwich — 3 Fillings', desc: '', price: '4.00' },
-          { name: 'Baguette — 1 Filling', desc: '', price: '3.50' },
-          { name: 'Baguette — 2 Fillings', desc: '', price: '4.00' },
-          { name: 'Baguette — 3 Fillings', desc: '', price: '4.50' },
+          { name: 'Sandwich, 1 Filling', desc: 'Egg, bacon, sausage, ham, cheese, tomato, lettuce, onions', price: '3.00' },
+          { name: 'Sandwich, 2 Fillings', desc: '', price: '3.50' },
+          { name: 'Sandwich, 3 Fillings', desc: '', price: '4.00' },
+          { name: 'Baguette, 1 Filling', desc: '', price: '3.50' },
+          { name: 'Baguette, 2 Fillings', desc: '', price: '4.00' },
+          { name: 'Baguette, 3 Fillings', desc: '', price: '4.50' },
           { name: 'Cheese (Cold)', desc: '', price: '3.00' },
           { name: 'Tuna Mayo (Cold)', desc: '', price: '4.00' },
           { name: 'Ham Salad (Cold)', desc: '', price: '3.50' },
@@ -245,14 +245,14 @@ const DEFAULT_CONTENT = {
         source: 'Tripadvisor',
         rating: 5,
         date: 'January 2025',
-        text: 'The service was excellent — coffee first, then minutes later the breakfast! Mine was very filling and tasty. All in all a great visit and the food was great value. Will return!',
+        text: 'The service was excellent, coffee first, then minutes later the breakfast! Mine was very filling and tasty. All in all a great visit and the food was great value. Will return!',
       },
       {
         author: 'Andy Y',
         source: 'Tripadvisor',
         rating: 5,
         date: 'October 2021',
-        text: 'We eat here at least twice a month — without doubt our favourite cafe. Food is always spot on and served speedily and hot. It can get very busy in the mornings but has plenty of tables inside and out.',
+        text: 'We eat here at least twice a month, without doubt our favourite cafe. Food is always spot on and served speedily and hot. It can get very busy in the mornings but has plenty of tables inside and out.',
       },
       {
         author: 'Michael G',
@@ -280,7 +280,7 @@ const DEFAULT_CONTENT = {
   partners: {
     enabled: false,
     title: 'Local businesses we love',
-    desc: 'Supporting the Lancing community — businesses we know and recommend.',
+    desc: 'Supporting the Lancing community, businesses we know and recommend.',
     items: [],
   },
 };
