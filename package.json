@@ -1,0 +1,11 @@
+{
+  "name": "rainbow-cafe",
+  "version": "1.0.0",
+  "description": "Rainbow Cafe website with admin panel",
+  "scripts": {
+    "start": "npx serve . --single"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
