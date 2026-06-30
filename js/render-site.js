@@ -16,7 +16,8 @@ async function renderSite() {
   renderQuote(content.quote);
   renderContact(content.contact);
   renderHours(content.hours);
-  renderFooter(content.contact, content.social);
+  renderReviews(content.reviews);
+  renderPartners(content.partners);
   highlightToday(content.hours);
 }
 
@@ -144,6 +145,74 @@ function renderHours(hours) {
       <td class="hours-day">${label}</td>
       <td class="hours-time">${escHtml(hours[key] || 'Closed')}</td>
     </tr>
+  `).join('');
+}
+
+function renderReviews(reviews) {
+  if (!reviews || !reviews.enabled) return;
+
+  const summary = document.getElementById('reviewsSummary');
+  const grid = document.getElementById('reviewsGrid');
+  if (!summary || !grid) return;
+
+  const platforms = [
+    { key: 'google', icon: '🔍', name: 'Google' },
+    { key: 'tripadvisor', icon: '🦉', name: 'Tripadvisor' },
+  ];
+
+  summary.innerHTML = platforms.map(p => {
+    const d = reviews.summary?.[p.key];
+    if (!d) return '';
+    const stars = '★'.repeat(Math.round(parseFloat(d.rating)));
+    return `
+      <a class="review-platform" href="${d.url}" target="_blank" rel="noopener">
+        <div class="review-platform-icon">${p.icon}</div>
+        <div>
+          <div class="review-platform-rating">${d.rating}</div>
+          <div class="review-platform-stars">${stars}</div>
+          <div class="review-platform-count">${d.count} reviews</div>
+          <div class="review-platform-name">${p.name}</div>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  grid.innerHTML = (reviews.featured || []).map(r => `
+    <div class="review-card">
+      <div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+      <div class="review-text">${escHtml(r.text)}</div>
+      <div class="review-meta">
+        <div>
+          <div class="review-author">${escHtml(r.author)}</div>
+          <div class="review-date">${escHtml(r.date)}</div>
+        </div>
+        <div class="review-source">${escHtml(r.source)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderPartners(partners) {
+  const section = document.getElementById('partnersSection');
+  if (!partners || !partners.enabled || !partners.items || partners.items.length === 0) {
+    section.classList.add('hidden');
+    return;
+  }
+  section.classList.remove('hidden');
+  setText('partnersTitle', partners.title);
+  setText('partnersDesc', partners.desc);
+
+  const grid = document.getElementById('partnersGrid');
+  grid.innerHTML = partners.items.map(p => `
+    <a class="partner-card" href="${p.url || '#'}" target="_blank" rel="noopener sponsored">
+      ${p.logo
+        ? `<img class="partner-logo" src="${p.logo}" alt="${escHtml(p.name)}">`
+        : `<div class="partner-logo-placeholder">${p.emoji || '🏢'}</div>`
+      }
+      <div class="partner-name">${escHtml(p.name)}</div>
+      ${p.desc ? `<div class="partner-desc">${escHtml(p.desc)}</div>` : ''}
+      ${p.url ? `<div class="partner-link-label">Visit website →</div>` : ''}
+    </a>
   `).join('');
 }
 

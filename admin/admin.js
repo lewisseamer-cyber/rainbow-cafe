@@ -39,6 +39,7 @@ async function initAdmin() {
   renderContactEditor();
   renderStoryEditor();
   renderSocialEditor();
+  renderPartnersEditor();
 }
 
 /* ============================================================
@@ -336,8 +337,90 @@ function removeSocial(i) {
 }
 
 /* ============================================================
-   SAVE / DISCARD
+   9. PARTNERS EDITOR
    ============================================================ */
+function renderPartnersEditor() {
+  const el = document.getElementById('content-partners');
+  const p = workingContent.partners || { enabled: false, title: '', desc: '', items: [] };
+
+  el.innerHTML = `
+    <div class="field" style="margin-top:14px;">
+      <label class="field-label">
+        <input type="checkbox" id="partnersEnabled" ${p.enabled ? 'checked' : ''}
+          onchange="workingContent.partners.enabled = this.checked">
+        Show the Partners section on the website
+      </label>
+      <div class="field-hint">Turn this on when you have at least one partner to show. The section is completely hidden when turned off.</div>
+    </div>
+    <div class="field">
+      <label class="field-label">Section Title</label>
+      <input class="field-input" value="${escAttr(p.title)}"
+        oninput="workingContent.partners.title = this.value"
+        placeholder="e.g. Local businesses we love">
+    </div>
+    <div class="field">
+      <label class="field-label">Section Description</label>
+      <input class="field-input" value="${escAttr(p.desc)}"
+        oninput="workingContent.partners.desc = this.value"
+        placeholder="e.g. Supporting the Lancing community">
+    </div>
+    <div class="field">
+      <label class="field-label">Partner Listings</label>
+      <div class="field-hint" style="margin-bottom:12px;">Each listing shows a logo (or emoji), business name, short description and a website link. Charge per listing — this is your advertising revenue.</div>
+      ${(p.items || []).map((item, i) => `
+        <div class="menu-cat-block" style="margin-bottom:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div style="font-family:'Fraunces',serif; font-weight:600; font-size:15px;">Partner ${i + 1}</div>
+            <button class="remove-cat-btn" onclick="removePartner(${i})">Remove</button>
+          </div>
+          <div class="field">
+            <label class="field-label">Business Name</label>
+            <input class="field-input" value="${escAttr(item.name)}"
+              oninput="updatePartner(${i},'name',this.value)" placeholder="e.g. The Lancing Arms">
+          </div>
+          <div class="field">
+            <label class="field-label">Short Description</label>
+            <input class="field-input" value="${escAttr(item.desc)}"
+              oninput="updatePartner(${i},'desc',this.value)" placeholder="e.g. Friendly local pub, just down the road">
+          </div>
+          <div class="field">
+            <label class="field-label">Website Link</label>
+            <input class="field-input" value="${escAttr(item.url)}"
+              oninput="updatePartner(${i},'url',this.value)" placeholder="https://...">
+          </div>
+          <div class="field">
+            <label class="field-label">Logo Image Link (optional)</label>
+            <input class="field-input" value="${escAttr(item.logo)}"
+              oninput="updatePartner(${i},'logo',this.value)" placeholder="Paste an image link, or leave blank">
+            <div class="field-hint">If no logo, use an emoji instead:</div>
+          </div>
+          <div class="field">
+            <label class="field-label">Emoji (if no logo)</label>
+            <input class="field-input" style="width:80px;" value="${escAttr(item.emoji)}"
+              oninput="updatePartner(${i},'emoji',this.value)" placeholder="🏨">
+          </div>
+        </div>
+      `).join('')}
+      <button class="icon-btn add-btn" style="margin-top:8px;" onclick="addPartner()">+ Add a Partner</button>
+    </div>
+  `;
+}
+
+function updatePartner(i, field, val) {
+  if (!workingContent.partners.items[i]) return;
+  workingContent.partners.items[i][field] = val;
+}
+
+function addPartner() {
+  if (!workingContent.partners.items) workingContent.partners.items = [];
+  workingContent.partners.items.push({ name: '', desc: '', url: '', logo: '', emoji: '🏢' });
+  renderPartnersEditor();
+}
+
+function removePartner(i) {
+  workingContent.partners.items.splice(i, 1);
+  renderPartnersEditor();
+}
 async function saveChanges() {
   const status = document.getElementById('saveStatus');
   status.className = 'save-status saving';
@@ -367,6 +450,7 @@ async function discardChanges() {
   renderContactEditor();
   renderStoryEditor();
   renderSocialEditor();
+  renderPartnersEditor();
 }
 
 /* ============================================================

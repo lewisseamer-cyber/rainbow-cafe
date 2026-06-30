@@ -212,6 +212,40 @@
   .admin-link { opacity: 0.35; font-size: 11px; transition: opacity 0.2s; }
   .admin-link:hover { opacity: 0.8; }
 
+  /* Reviews section */
+  .reviews-section { background: var(--paper); }
+  .reviews-summary { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+  .review-platform { background: var(--paper2); border: 1px solid var(--cream-line); border-radius: 8px; padding: 18px 24px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; transition: border-color 0.2s; flex: 1; min-width: 180px; }
+  .review-platform:hover { border-color: var(--terracotta); }
+  .review-platform-icon { font-size: 28px; }
+  .review-platform-rating { font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .review-platform-stars { color: var(--gold); font-size: 13px; margin: 3px 0; }
+  .review-platform-count { font-size: 12px; color: var(--muted); }
+  .review-platform-name { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .review-card { background: var(--paper2); border: 1px solid var(--cream-line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .review-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+  .review-text { font-size: 14px; color: var(--ink); line-height: 1.7; font-style: italic; flex: 1; }
+  .review-text::before { content: '"'; }
+  .review-text::after { content: '"'; }
+  .review-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--cream-line); }
+  .review-author { font-weight: 700; font-size: 13px; color: var(--ink); }
+  .review-source { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .review-date { font-size: 12px; color: var(--muted); }
+  .reviews-cta { margin-top: 28px; text-align: center; font-size: 13px; color: var(--muted); }
+  .reviews-cta a { color: var(--terracotta); text-decoration: none; font-weight: 600; }
+  @media (max-width: 600px) { .reviews-grid { grid-template-columns: 1fr; } }
+  .partners-section { background: var(--paper2); border-top: 1px solid var(--cream-line); padding: 56px 0; }
+  .partners-section.hidden { display: none; }
+  .partners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
+  .partner-card { background: var(--paper); border: 1px solid var(--cream-line); border-radius: 8px; padding: 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s, transform 0.15s; }
+  .partner-card:hover { border-color: var(--terracotta); transform: translateY(-2px); }
+  .partner-logo { width: 100%; height: 60px; object-fit: contain; border-radius: 4px; }
+  .partner-logo-placeholder { width: 100%; height: 60px; background: var(--paper2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  .partner-name { font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--ink); }
+  .partner-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .partner-link-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--terracotta); margin-top: auto; }
+
 </style>
 </head>
 <body>
@@ -342,6 +376,21 @@
     </div>
   </section>
 
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="wrap">
+      <div class="eyebrow">What People Say</div>
+      <h2>Loved by locals</h2>
+      <p class="lede" style="margin-bottom:36px;">Rated 4.4 on Google from over 400 reviews. Here's what real customers think.</p>
+      <div class="reviews-summary" id="reviewsSummary"></div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+      <div class="reviews-cta">
+        Read more on <a href="https://www.tripadvisor.com/Restaurant_Review-g504224-d7809345-Reviews-Rainbow_Cafe-Lancing_West_Sussex_England.html" target="_blank" rel="noopener">Tripadvisor</a> &nbsp;·&nbsp;
+        Leave a review on <a href="https://g.co/kgs/rainbow-cafe-lancing" target="_blank" rel="noopener">Google</a>
+      </div>
+    </div>
+  </section>
+
   <section class="quote-section">
     <div class="wrap">
       <div class="quote-text" id="quoteText">"There is no love sincerer than the love of food."</div>
@@ -390,6 +439,16 @@
             title="Rainbow Cafe location map"></iframe>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners-section hidden" id="partnersSection">
+    <div class="wrap">
+      <div class="eyebrow">Our Partners</div>
+      <h2 id="partnersTitle">Local businesses we love</h2>
+      <p class="lede" id="partnersDesc">Supporting the Lancing community — businesses we know and recommend.</p>
+      <div class="partners-grid" id="partnersGrid"></div>
     </div>
   </section>
 

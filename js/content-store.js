@@ -210,6 +210,79 @@ const DEFAULT_CONTENT = {
   social: [
     { label: 'Facebook', url: 'https://www.facebook.com/Lancing.Rainbow/' },
   ],
+  gallery: {
+    images: [
+      'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/12/1.jpg?w=366',
+      'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/12/2-1.jpg?w=371',
+      'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/12/3-1.jpg?w=364',
+      'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/12/4-1.jpg?w=395',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/81/5c/75/front-view.jpg?w=900&h=500&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/5e/0a/88/rainbow-cafe-lancing.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/5e/0a/24/bacon-sandwich-and-a.jpg?w=1200&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/fe/c0/63/apple-pie.jpg?w=1100&h=1100&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/bd/70/b0/coffee.jpg?w=1100&h=1100&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/81/5c/77/outside-sitting.jpg?w=500&h=300&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/23/3c/68/caption.jpg?w=1100&h=1100&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/23/3c/69/caption.jpg?w=1100&h=1100&s=1',
+    ],
+  },
+  reviews: {
+    enabled: true,
+    summary: {
+      google: { rating: '4.4', count: '400+', url: 'https://g.co/kgs/rainbow-cafe-lancing' },
+      tripadvisor: { rating: '4.3', count: '36', url: 'https://www.tripadvisor.com/Restaurant_Review-g504224-d7809345-Reviews-Rainbow_Cafe-Lancing_West_Sussex_England.html' },
+    },
+    featured: [
+      {
+        author: 'Kelly H',
+        source: 'Tripadvisor',
+        rating: 5,
+        date: 'February 2023',
+        text: 'Want the absolute BEST breakfasts in Sussex? Come to the Rainbow Cafe. Large portions, nice fresh, well-cooked food and not too expensive! Been coming here for years and can 100% recommend to everyone.',
+      },
+      {
+        author: 'Ben S',
+        source: 'Tripadvisor',
+        rating: 5,
+        date: 'January 2025',
+        text: 'The service was excellent — coffee first, then minutes later the breakfast! Mine was very filling and tasty. All in all a great visit and the food was great value. Will return!',
+      },
+      {
+        author: 'Andy Y',
+        source: 'Tripadvisor',
+        rating: 5,
+        date: 'October 2021',
+        text: 'We eat here at least twice a month — without doubt our favourite cafe. Food is always spot on and served speedily and hot. It can get very busy in the mornings but has plenty of tables inside and out.',
+      },
+      {
+        author: 'Michael G',
+        source: 'Tripadvisor',
+        rating: 5,
+        date: 'May 2023',
+        text: 'The breakfast came hot and very quickly, the portion sizes were excellent and very tasty. I have used the Rainbow Cafe many times and as I was in the area, I decided to pop in. Never disappointed.',
+      },
+      {
+        author: 'Google Review',
+        source: 'Google',
+        rating: 5,
+        date: 'Recent',
+        text: 'Lovely staff who are always friendly and welcoming. Lots of items on the menu to choose from, hot and cold choices. Very reasonably priced.',
+      },
+      {
+        author: 'Google Review',
+        source: 'Google',
+        rating: 5,
+        date: 'Recent',
+        text: 'Unreal. Been here a few times now. The baguettes are amazing and the cooked breakfasts even better. Staff are very friendly.',
+      },
+    ],
+  },
+  partners: {
+    enabled: false,
+    title: 'Local businesses we love',
+    desc: 'Supporting the Lancing community — businesses we know and recommend.',
+    items: [],
+  },
 };
 
 async function getContent() {
@@ -250,3 +323,6 @@ function deepMerge(base, override) {
   }
   return result;
 }
+
+/* NOTE: DEFAULT_CONTENT above has been extended with gallery and reviews below.
+   Run this snippet once in browser console to reset if needed: localStorage.clear() */
