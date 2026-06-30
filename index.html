@@ -88,7 +88,7 @@
   nav { position: sticky; top: 0; z-index: 100; background: var(--paper); border-bottom: 1px solid var(--cream-line); }
   .nav-inner { max-width: 1080px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
   .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-brand-mark { width: 34px; height: 34px; border-radius: 50%; background: conic-gradient(var(--terracotta), var(--gold), var(--sage), #4a7a9e, #8a5a9e, var(--terracotta)); flex-shrink: 0; }
+  .nav-brand-mark { flex-shrink: 0; display: flex; align-items: center; }
   .nav-brand-text { font-family: var(--display); font-weight: 700; font-size: 19px; color: var(--ink); }
   .nav-links { display: flex; gap: 28px; list-style: none; }
   .nav-links a { font-size: 14px; font-weight: 500; text-decoration: none; color: var(--ink); position: relative; padding-bottom: 4px; }
@@ -215,7 +215,18 @@
   <nav>
     <div class="nav-inner">
       <a class="nav-brand" href="#top">
-        <div class="nav-brand-mark"></div>
+        <div class="nav-brand-mark">
+          <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M 10 58 A 42 42 0 0 1 90 58" fill="none" stroke="#ff6b5b" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 18 58 A 34 34 0 0 1 82 58" fill="none" stroke="#ffb937" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 26 58 A 26 26 0 0 1 74 58" fill="none" stroke="#2bb3a3" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 34 58 A 18 18 0 0 1 66 58" fill="none" stroke="#4a7a9e" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 42 58 A 10 10 0 0 1 58 58" fill="none" stroke="#8a5a9e" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 36 62 L 38.5 80 Q 38.5 86 44 86 L 56 86 Q 61.5 86 61.5 80 L 64 62 Z" fill="#0e5c8c"/>
+            <path d="M 61.5 68 Q 72 68 72 75 Q 72 82 61.5 80" fill="none" stroke="#0e5c8c" stroke-width="5.5" stroke-linecap="round"/>
+            <ellipse cx="50" cy="88" rx="17" ry="4" fill="#0e5c8c" opacity="0.2"/>
+          </svg>
+        </div>
         <div class="nav-brand-text">Rainbow Cafe</div>
       </a>
       <ul class="nav-links" id="navLinks">
@@ -383,7 +394,18 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">
-          <div class="nav-brand-mark"></div>
+          <div class="nav-brand-mark">
+          <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M 10 58 A 42 42 0 0 1 90 58" fill="none" stroke="#ff6b5b" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 18 58 A 34 34 0 0 1 82 58" fill="none" stroke="#ffb937" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 26 58 A 26 26 0 0 1 74 58" fill="none" stroke="#2bb3a3" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 34 58 A 18 18 0 0 1 66 58" fill="none" stroke="#4a7a9e" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 42 58 A 10 10 0 0 1 58 58" fill="none" stroke="#8a5a9e" stroke-width="9" stroke-linecap="round"/>
+            <path d="M 36 62 L 38.5 80 Q 38.5 86 44 86 L 56 86 Q 61.5 86 61.5 80 L 64 62 Z" fill="#0e5c8c"/>
+            <path d="M 61.5 68 Q 72 68 72 75 Q 72 82 61.5 80" fill="none" stroke="#0e5c8c" stroke-width="5.5" stroke-linecap="round"/>
+            <ellipse cx="50" cy="88" rx="17" ry="4" fill="#0e5c8c" opacity="0.2"/>
+          </svg>
+        </div>
           <div class="footer-brand-text">Rainbow Cafe</div>
         </div>
         <div class="footer-tag" id="footerAddress">—</div>

@@ -52,9 +52,8 @@
 
   .login-mark {
     width: 48px; height: 48px;
-    border-radius: 50%;
     margin: 0 auto 16px;
-    background: conic-gradient(#ff6b5b, #ffb937, #2bb3a3, #4a7a9e, #8a5a9e, #ff6b5b);
+    display: flex; align-items: center; justify-content: center;
   }
 
   .login-title {
@@ -129,7 +128,7 @@
     gap: 12px;
   }
 
-  .admin-mark { width: 30px; height: 30px; border-radius: 50%; background: conic-gradient(#ff6b5b, #ffb937, #2bb3a3, #4a7a9e, #8a5a9e, #ff6b5b); flex-shrink: 0; }
+  .admin-mark { width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; }
 
   .admin-title {
     font-family: 'Fraunces', serif;
@@ -399,7 +398,16 @@
      ============================================================ -->
 <div id="loginScreen">
   <div class="login-card">
-    <div class="login-mark"></div>
+    <div class="login-mark"><svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M 10 58 A 42 42 0 0 1 90 58" fill="none" stroke="#ff6b5b" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 18 58 A 34 34 0 0 1 82 58" fill="none" stroke="#ffb937" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 26 58 A 26 26 0 0 1 74 58" fill="none" stroke="#2bb3a3" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 34 58 A 18 18 0 0 1 66 58" fill="none" stroke="#4a7a9e" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 42 58 A 10 10 0 0 1 58 58" fill="none" stroke="#8a5a9e" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 36 62 L 38.5 80 Q 38.5 86 44 86 L 56 86 Q 61.5 86 61.5 80 L 64 62 Z" fill="#0e5c8c"/>
+      <path d="M 61.5 68 Q 72 68 72 75 Q 72 82 61.5 80" fill="none" stroke="#0e5c8c" stroke-width="5.5" stroke-linecap="round"/>
+      <ellipse cx="50" cy="88" rx="17" ry="4" fill="#0e5c8c" opacity="0.2"/>
+    </svg></div>
     <div class="login-title">Rainbow Cafe</div>
     <div class="login-sub">Edit Your Website</div>
     <input class="login-input" id="loginInput" type="password" placeholder="Enter your password"
@@ -419,7 +427,16 @@
 
   <div class="admin-header">
     <div class="admin-header-left">
-      <div class="admin-mark"></div>
+      <div class="admin-mark"><svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M 10 58 A 42 42 0 0 1 90 58" fill="none" stroke="#ff6b5b" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 18 58 A 34 34 0 0 1 82 58" fill="none" stroke="#ffb937" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 26 58 A 26 26 0 0 1 74 58" fill="none" stroke="#2bb3a3" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 34 58 A 18 18 0 0 1 66 58" fill="none" stroke="#4a7a9e" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 42 58 A 10 10 0 0 1 58 58" fill="none" stroke="#8a5a9e" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 36 62 L 38.5 80 Q 38.5 86 44 86 L 56 86 Q 61.5 86 61.5 80 L 64 62 Z" fill="#0e5c8c"/>
+      <path d="M 61.5 68 Q 72 68 72 75 Q 72 82 61.5 80" fill="none" stroke="#0e5c8c" stroke-width="5.5" stroke-linecap="round"/>
+      <ellipse cx="50" cy="88" rx="17" ry="4" fill="#0e5c8c" opacity="0.2"/>
+    </svg></div>
       <div class="admin-title">Edit Your Website</div>
     </div>
     <div class="admin-header-right">
