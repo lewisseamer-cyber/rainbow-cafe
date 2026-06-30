@@ -13,7 +13,7 @@ const DEFAULT_CONTENT = {
   hero: {
     headline: 'Good food,<br>made with <em>care</em>,<br>since the 80s.',
     lede: 'A local cafe on South Street, run by Carlos and Jay. Honest breakfasts, hearty dinners, and a proper cup of coffee — in a building with roots back to 1838.',
-    image: 'https://rainbowcafelancing.wordpress.com/wp-content/uploads/2020/06/top-wallpapers-1-101-1.jpeg?w=1024',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAF_U_WG5jZJ5sldNBBRaULdMpWHsdHh251NXGbSuNS3emp636I-5YvuYg9SohErSOqveafd8O-k-vLm-xJYJmZLEPrTkZ3j6MZ6zxlGVzMoDqsMxJ4bcaXjfmZkotwwq6s1PX3Q=s680-w680-h510-rw',
   },
   specials: {
     enabled: false,
